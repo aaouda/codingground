@@ -4,7 +4,6 @@ using namespace std;
 
 const int N = 1000010;
 int lf[N]; // Lowest prime factor
-int e[N]; // puissance
 
 
 /*
@@ -36,17 +35,15 @@ void sieve( void ) {
 */
 void fct( int n ) {
 
-    for(int i=0; i<N; i++) e[i]=1;
-    int k=0;
+    int e = 0, p = 1;
     while(n > 1) {
       if( lf[n] == lf[ n/lf[n] ] )
-        e[k]++;
-      else k++;
+        e++;
+      else{
+         p *= (e + 1);
+         e = 1;
+      }
       n /= lf[n];
-    }
-    int p = 1;
-    for(int i=0; i<k; i++) {
-      p *= ( e[i] + 1 );
     }
     cout << p << endl;
 }
