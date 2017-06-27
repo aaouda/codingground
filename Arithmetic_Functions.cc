@@ -35,7 +35,7 @@ void sieve( void ) {
 */
 void fct( int n ) {
 
-    int e = 0, p = 1;
+    int e = 1, p = 1;
     while(n > 1) {
       if( lf[n] == lf[ n/lf[n] ] )
         e++;
